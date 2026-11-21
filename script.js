@@ -72,27 +72,28 @@ function setupHeaderShadow() {
   update();
 }
 
-// Drives the reviews carousel with arrows, dots, autoplay, hover pause, and swipe.
+// Drives the reviews carousel with automatic rotation and pause-on-interaction behavior.
 function setupReviewsCarousel() {
   const root = document.querySelector("[data-carousel]");
   if (!root) return;
 
   const track = root.querySelector("[data-track]");
   const viewport = root.querySelector("[data-window]");
-  const prev = root.querySelector("[data-prev]");
-  const next = root.querySelector("[data-next]");
-  const dots = root.querySelector("[data-dots]");
-  if (!track || !viewport || !prev || !next || !dots) return;
+  if (!track || !viewport) return;
 
   const cards = Array.from(track.children);
   if (!cards.length) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const canHover = window.matchMedia("(hover:hover)").matches;
 
   let index = 0;
   let maxIndex = 0;
   let perView = 1;
   let timer = null;
-  let startX = 0;
-  let dragging = false;
+  let hovering = false;
+  let focusWithin = false;
+  let pointerActive = false;
 
   // Measures the viewport, sets cards per view, and rebuilds the dot controls.
   function measure() {
@@ -102,22 +103,6 @@ function setupReviewsCarousel() {
     index = Math.min(index, maxIndex);
 
     track.style.setProperty("--per-view", String(perView));
-    dots.replaceChildren();
-
-    // Creates one clickable dot for each carousel position.
-    for (let position = 0; position <= maxIndex; position += 1) {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "dot";
-      dot.setAttribute("aria-label", `Go to review ${position + 1}`);
-      dot.addEventListener("click", () => {
-        index = position;
-        render();
-        start();
-      });
-      dots.appendChild(dot);
-    }
-
     render();
   }
 
@@ -126,14 +111,7 @@ function setupReviewsCarousel() {
     const cardWidth = cards[0].getBoundingClientRect().width;
     const styles = window.getComputedStyle(track);
     const gap = parseFloat(styles.columnGap || styles.gap) || 0;
-    const step = cardWidth + gap;
-
-    track.style.transform = `translateX(-${index * step}px)`;
-
-    Array.from(dots.children).forEach((dot, position) => {
-      dot.classList.toggle("active", position === index);
-      dot.setAttribute("aria-current", position === index ? "true" : "false");
-    });
+    track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
 
     cards.forEach((card, position) => {
       const visible = position >= index && position < index + perView;
@@ -141,68 +119,70 @@ function setupReviewsCarousel() {
     });
   }
 
-  // Advances the carousel and wraps around at the end.
+   // Moves one card forward and loops back to the first card.
   function goNext() {
     index = index >= maxIndex ? 0 : index + 1;
     render();
   }
 
-  // Moves the carousel backward and wraps around at the start.
-  function goPrev() {
-    index = index <= 0 ? maxIndex : index - 1;
-    render();
+  // Checks whether autoplay is allowed right now.
+  function canAutoplay() {
+    return !hovering && !focusWithin && !pointerActive && !reducedMotion.matches;
   }
 
-  // Starts autoplay unless the visitor prefers reduced motion.
-  function start() {
-    stop();
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    timer = window.setInterval(goNext, 5500);
-  }
-
-  // Stops autoplay while someone is interacting with the carousel.
-  function stop() {
+  // Starts or stops the automatic timer based on interaction state.
+  function syncTimer() {
     if (timer) window.clearInterval(timer);
     timer = null;
+    if (canAutoplay()) timer = window.setInterval(goNext, 5000);
   }
 
   measure();
-  start();
+  syncTimer();
 
-  window.addEventListener("resize", measure);
-  prev.addEventListener("click", () => {
-    goPrev();
-    start();
-  });
-  next.addEventListener("click", () => {
-    goNext();
-    start();
+  window.addEventListener("resize", () => {
+    measure();
+    syncTimer();
   });
 
-  root.addEventListener("mouseenter", stop);
-  root.addEventListener("mouseleave", start);
-  root.addEventListener("focusin", stop);
+  if (canHover) {
+    root.addEventListener("mouseenter", () => {
+      hovering = true;
+      syncTimer();
+    });
+    root.addEventListener("mouseleave", () => {
+      hovering = false;
+      syncTimer();
+    });
+  }
+
+  root.addEventListener("focusin", () => {
+    focusWithin = true;
+    syncTimer();
+  });
   root.addEventListener("focusout", (event) => {
-    if (!root.contains(event.relatedTarget)) start();
+    if (!root.contains(event.relatedTarget)) {
+      focusWithin = false;
+      syncTimer();
+    }
   });
 
-  viewport.addEventListener("pointerdown", (event) => {
-    dragging = true;
-    startX = event.clientX;
+  viewport.addEventListener("pointerdown", () => {
+    pointerActive = true;
+    syncTimer();
   });
-  viewport.addEventListener("pointerup", (event) => {
-    if (!dragging) return;
-    dragging = false;
-    const distance = event.clientX - startX;
-    if (Math.abs(distance) > 50) {
-      if (distance < 0) goNext();
-      else goPrev();
-    }
-    start();
+  window.addEventListener("pointerup", () => {
+    pointerActive = false;
+    syncTimer();
   });
-  viewport.addEventListener("pointercancel", () => {
-    dragging = false;
+  window.addEventListener("pointercancel", () => {
+    pointerActive = false;
+    syncTimer();
   });
+
+  if (typeof reducedMotion.addEventListener === "function") {
+    reducedMotion.addEventListener("change", syncTimer);
+  }
 }
 
 // Builds a pre-filled email from the contact form instead of sending silently.

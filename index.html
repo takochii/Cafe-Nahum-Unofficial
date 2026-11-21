@@ -14,6 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
@@ -33,7 +37,7 @@
     <header id="site-header" class="sticky top-0 z-50 border-b border-cocoa/10 bg-cream/85 backdrop-blur-md">
       <nav class="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8" aria-label="Main navigation">
         <a href="#home" class="flex items-center gap-3 rounded-full focus-ring" aria-label="Cafe Nahum home">
-          <span class="brand-mark">CN</span>
+          <img class="brand-mark" src= "logo.jpg" alt="Cafe Nahum Logo"/>
           <span class="font-display text-xl font-semibold tracking-tight">Cafe Nahum</span>
         </a>
 
@@ -64,7 +68,7 @@
     <main>
       <section id="home" class="section-anchor relative overflow-hidden">
         <div class="hero-glow" aria-hidden="true"></div>
-        <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:py-24">
+        <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 pt-6 pb-16 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:pt-10 md:pb-24">
           <div class="fade-up">
             <p class="eyebrow">beans.bakes.books</p>
             <h1 class="mt-5 font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl lg:text-7xl">
@@ -77,20 +81,19 @@
             <div class="mt-8 flex flex-wrap gap-3">
               <a href="#menu" class="btn btn-primary focus-ring">Explore our Menu</a>
               <a
-                href="https://www.google.com/maps/search/?api=1&amp;query=CAFE+NAHUM+ADDRESS+HERE"
+                href="https://maps.app.goo.gl/cj9kjuo4eZBnKSXZ8"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-secondary focus-ring"
+                class="btn btn-secondary"
                 data-placeholder="Google Maps pinned location"
               >
                 Visit us
               </a>
             </div>
             <div class="mt-8 flex items-start gap-3 text-sm text-cocoa/70">
-              <span class="pin-dot" aria-hidden="true"></span>
+              <i class="bi bi-geo-alt-fill location-icon" aria-hidden="true"></i>
               <p>
-                <span class="font-semibold text-cocoa">Find us:</span>
-                [Address placeholder — replace with the café's street address, city, and landmark]
+                18 Commission Civil St, Jaro, Iloilo City, 5000 Iloilo
               </p>
             </div>
           </div>
@@ -98,8 +101,8 @@
           <div class="hero-visual fade-up delay-1" aria-label="Decorative illustration of a coffee cup, book, and leaves">
             <div class="hero-card">
               <div class="hero-card-top">
-                <span class="mini-label">today's corner</span>
-                <span class="wifi-pill">Wi-Fi • Outlets • Books</span>
+                <span class="mini-label">Student's corner</span>
+                <span class="wifi-pill">Free Wi-Fi • Outlets • Books</span>
               </div>
               <svg class="cup-art" viewBox="0 0 240 190" role="img" aria-label="Line drawing of a coffee cup on a book">
                 <path d="M42 96h126v42c0 25-20 45-45 45H87c-25 0-45-20-45-45V96Z" fill="#fffaf1" stroke="currentColor" stroke-width="5" />
@@ -110,11 +113,9 @@
               </svg>
               <div class="hero-card-bottom">
                 <p class="font-display text-2xl font-semibold">Stay for one more chapter.</p>
-                <p class="text-sm text-cocoa/65">Open for quick catch-ups and slow study sessions.</p>
+                <p class="text-sm text-cocoa/65">Open till 2:00 AM.</p>
               </div>
             </div>
-            <div class="floating-note floating-note-one">iced latte o'clock</div>
-            <div class="floating-note floating-note-two">window seat = best seat</div>
             <div class="leaf-shape leaf-one" aria-hidden="true"></div>
             <div class="leaf-shape leaf-two" aria-hidden="true"></div>
           </div>
@@ -141,13 +142,7 @@
           <div class="polaroid-stage fade-up delay-1">
             <div class="tape" aria-hidden="true"></div>
             <figure class="polaroid">
-              <div
-                class="polaroid-photo"
-                role="img"
-                aria-label="Image placeholder: warm café interior with plants, wooden tables, and soft light"
-              >
-                <span>photo placeholder</span>
-              </div>
+              <div class="polaroid-photo" data-image-slot></div>
               <figcaption>the corner where ideas brew</figcaption>
             </figure>
             <div class="scribble" aria-hidden="true">est. with love</div>
@@ -156,7 +151,7 @@
       </section>
 
       <section id="menu" class="section-anchor py-20 sm:py-24">
-        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
           <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div class="fade-up">
               <p class="eyebrow">Menu</p>
@@ -166,10 +161,10 @@
               href="https://www.facebook.com/PLACEHOLDER_MENU_IMAGE_POST"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-secondary self-start focus-ring"
+              class="btn btn-secondary"
               data-placeholder="Facebook menu image link"
             >
-              View full menu
+              View Full Menu
             </a>
           </div>
 
@@ -181,14 +176,14 @@
               </div>
               <div class="mt-6 space-y-5">
                 <div class="featured-item">
-                  <div class="featured-thumb" role="img" aria-label="Image placeholder: brown butter cookie"><span>img</span></div>
+                  <div class="featured-thumb" data-image-slot></div>
                   <div>
                     <p class="font-semibold">Brown Butter Cookie</p>
                     <p class="text-sm text-cocoa/60">Price placeholder</p>
                   </div>
                 </div>
                 <div class="featured-item">
-                  <div class="featured-thumb thumb-alt" role="img" aria-label="Image placeholder: mango cake"><span>img</span></div>
+                  <div class="featured-thumb thumb-alt" data-image-slot></div>
                   <div>
                     <p class="font-semibold">Mango Cloud Cake</p>
                     <p class="text-sm text-cocoa/60">Price placeholder</p>
@@ -204,14 +199,14 @@
               </div>
               <div class="mt-6 space-y-5">
                 <div class="featured-item">
-                  <div class="featured-thumb thumb-honey" role="img" aria-label="Image placeholder: iced pandan latte"><span>img</span></div>
+                  <div class="featured-thumb thumb-honey" data-image-slot></div>
                   <div>
                     <p class="font-semibold">Iced Pandan Latte</p>
                     <p class="text-sm text-cocoa/60">Price placeholder</p>
                   </div>
                 </div>
                 <div class="featured-item">
-                  <div class="featured-thumb thumb-leaf" role="img" aria-label="Image placeholder: citrus cold brew"><span>img</span></div>
+                  <div class="featured-thumb thumb-leaf" data-image-slot></div>
                   <div>
                     <p class="font-semibold">Honey Citrus Cold Brew</p>
                     <p class="text-sm text-cocoa/60">Price placeholder</p>
@@ -227,14 +222,14 @@
               </div>
               <div class="mt-6 space-y-5">
                 <div class="featured-item">
-                  <div class="featured-thumb thumb-terracotta" role="img" aria-label="Image placeholder: tropical chicken panini"><span>img</span></div>
+                  <div class="featured-thumb thumb-terracotta" data-image-slot></div>
                   <div>
                     <p class="font-semibold">Tropical Chicken Panini</p>
                     <p class="text-sm text-cocoa/60">Price placeholder</p>
                   </div>
                 </div>
                 <div class="featured-item">
-                  <div class="featured-thumb" role="img" aria-label="Image placeholder: mushroom toast"><span>img</span></div>
+                  <div class="featured-thumb" data-image-slot></div>
                   <div>
                     <p class="font-semibold">Miso Mushroom Toast</p>
                     <p class="text-sm text-cocoa/60">Price placeholder</p>
@@ -256,12 +251,12 @@
           </div>
 
           <div class="gallery-grid mt-12">
-            <div class="gallery-tile tile-wide" role="img" aria-label="Gallery placeholder: sunny café window seats"><span>gallery placeholder</span></div>
-            <div class="gallery-tile" role="img" aria-label="Gallery placeholder: latte art on a wooden table"><span>gallery placeholder</span></div>
-            <div class="gallery-tile" role="img" aria-label="Gallery placeholder: bookshelf corner"><span>gallery placeholder</span></div>
-            <div class="gallery-tile tile-tall" role="img" aria-label="Gallery placeholder: plants and warm lights"><span>gallery placeholder</span></div>
-            <div class="gallery-tile" role="img" aria-label="Gallery placeholder: friends studying together"><span>gallery placeholder</span></div>
-            <div class="gallery-tile tile-wide" role="img" aria-label="Gallery placeholder: pastry display"><span>gallery placeholder</span></div>
+            <div class="gallery-tile tile-wide" data-image-slot></div>
+            <div class="gallery-tile" data-image-slot></div>
+            <div class="gallery-tile" data-image-slot></div>
+            <div class="gallery-tile tile-tall" data-image-slot></div>
+            <div class="gallery-tile" data-image-slot></div>
+            <div class="gallery-tile tile-wide" data-image-slot></div>
           </div>
         </div>
       </section>
@@ -352,8 +347,6 @@
                 </article>
               </div>
             </div>
-
-            
           </div>
           <p class="mt-5 text-center text-xs text-cocoa/50">
             Curated example reviews shown until live Google Reviews are connected.
@@ -378,9 +371,9 @@
                 class="social-card focus-ring"
                 data-placeholder="Facebook link"
               >
-                <span class="social-icon">f</span>
+                <span class="social-icon"><i class="bi bi-facebook" aria-hidden="true"></i></span>
                 <span><span class="block font-semibold">Facebook</span><span class="text-sm text-cream/60">PLACEHOLDER_PAGE</span></span>
-                <span class="ml-auto arrow">↗</span>
+                <span class="ml-auto arrow"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></span>
               </a>
               <a
                 href="https://www.instagram.com/PLACEHOLDER_HANDLE"
@@ -389,18 +382,18 @@
                 class="social-card focus-ring"
                 data-placeholder="Instagram link"
               >
-                <span class="social-icon">ig</span>
+                <span class="social-icon"><i class="bi bi-instagram" aria-hidden="true"></i></span>
                 <span><span class="block font-semibold">Instagram</span><span class="text-sm text-cream/60">@PLACEHOLDER_HANDLE</span></span>
-                <span class="ml-auto arrow">↗</span>
+                <span class="ml-auto arrow"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></span>
               </a>
               <a
                 href="mailto:hello@cafenahum.example"
                 class="social-card focus-ring"
                 data-placeholder="Email address"
               >
-                <span class="social-icon">@</span>
+                <span class="social-icon"><i class="bi bi-envelope-fill" aria-hidden="true"></i></span>
                 <span><span class="block font-semibold">Email</span><span class="text-sm text-cream/60">hello@cafenahum.example</span></span>
-                <span class="ml-auto arrow">↗</span>
+                <span class="ml-auto arrow"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></span>
               </a>
             </div>
           </div>
@@ -418,7 +411,7 @@
             <label class="field-label" for="message">Message</label>
             <textarea class="field-input field-textarea" id="message" name="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
 
-            <button type="submit" class="btn btn-honey mt-6 w-full focus-ring">Open email app</button>
+            <button type="submit" class="btn btn-honey mt-6 w-full">Open email app</button>
             <p class="mt-3 text-xs text-cream/55" data-form-status role="status" aria-live="polite"></p>
           </form>
         </div>

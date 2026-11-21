@@ -4,6 +4,8 @@
 - `package.json` still has no useful scripts: `npm test`, `npm run dev`, and `npm run build` all fail. Do not document them as working commands.
 - Tailwind CSS v4 is loaded in `index.html` from the jsDelivr browser CDN with a `<style type="text/tailwindcss">` theme block; there is no local Tailwind build, config file, or CSS entrypoint.
 - Google Fonts (`Fraunces` and `DM Sans`) load from a CDN; the page needs internet for the intended typography.
+- Bootstrap Icons `1.11.3` loads from the jsDelivr CDN for social, arrow, and location icons; it was explicitly approved as the one external icon library. Do not add another icon package.
+- Image slots are intentionally empty and marked with `data-image-slot` (polaroid, menu thumbnails, gallery tiles). The owner supplies the assets; do not add stock images or placeholder labels.
 - Business details are placeholders: address, Google Maps pin, Facebook menu post, social URLs, email, and prices must be replaced before launch.
 - Reviews are curated static Google-style cards, not a live Google Reviews import; live reviews require an API key or third-party service.
 - The contact form uses `mailto:` to open the visitor's email app; it does not send email from the site.
