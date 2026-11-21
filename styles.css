@@ -10,6 +10,19 @@ body {
   scroll-margin-top: 5rem;
 }
 
+.disclaimer-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: #f8e9cf;
+  color: #3a2a21;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
 .focus-ring:focus-visible {
   outline: 3px solid #e0a64d;
   outline-offset: 3px;
@@ -22,6 +35,7 @@ body {
 #site-header.scrolled {
   box-shadow: 0 12px 30px rgba(58, 42, 33, 0.09);
   background-color: rgba(255, 248, 237, 0.94);
+  
 }
 
 .brand-mark {
@@ -364,13 +378,13 @@ body {
 
 .scribble {
   position: absolute;
-  right: 2%;
-  bottom: 12%;
+  right: 1%;
+  bottom: 15%;
   color: #c86f4a;
   font-family: "Fraunces", Georgia, serif;
   font-size: 1rem;
   font-style: italic;
-  transform: rotate(-8deg);
+  transform: rotate(-3deg);
 }
 
 .menu-card {
@@ -442,63 +456,33 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-auto-rows: 180px;
   gap: 1rem;
 }
 
 @media (min-width: 640px) {
   .gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 200px;
   }
 }
 
 @media (min-width: 1024px) {
   .gallery-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 240px;
   }
 }
 
 .gallery-tile {
-  position: relative;
-  display: grid;
-  min-height: 180px;
-  overflow: hidden;
-  place-items: center;
-  border: 1px solid rgba(58, 42, 33, 0.08);
-  border-radius: 1.35rem;
-  background: linear-gradient(145deg, #e7d6b7, #c9d7c2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-tile:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(58, 42, 33, 0.12);
-}
-
-.gallery-tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(circle at 70% 20%, rgba(255, 248, 237, 0.6), transparent 45%);
-  opacity: 0.8;
-}
-
-.gallery-tile img {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.gallery-tile:nth-child(2n) {
-  background: linear-gradient(145deg, #d8c1a2, #a9c0a5);
-}
-
-.gallery-tile:nth-child(3n) {
-  background: linear-gradient(145deg, #f0d3ad, #d5a884);
+  overflow: hidden;
+  border: 1px solid rgba(58, 42, 33, 0.08);
+  border-radius: 1.35rem;
+  background: linear-gradient(145deg, #e7d6b7, #c9d7c2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tile-wide {
@@ -506,7 +490,7 @@ body {
 }
 
 .tile-tall {
-  min-height: 280px;
+  grid-row: span 2;
 }
 
 @media (max-width: 639px) {
