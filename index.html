@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Nahum — beans.bakes.books</title>
+    <meta
+      name="description"
+      content="Study & caffeinate in our comfy-tropical co-working café. Coffee, bakes, books, and warm corners in one place."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-cream: #fff8ed;
+        --color-sand: #f3e2c3;
+        --color-cocoa: #3a2a21;
+        --color-terracotta: #c86f4a;
+        --color-leaf: #3e6b50;
+        --color-honey: #e0a64d;
+        --font-display: "Fraunces", Georgia, serif;
+        --font-body: "DM Sans", system-ui, sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-cream text-cocoa font-body antialiased selection:bg-terracotta selection:text-white">
+    <header id="site-header" class="sticky top-0 z-50 border-b border-cocoa/10 bg-cream/85 backdrop-blur-md">
+      <nav class="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8" aria-label="Main navigation">
+        <a href="#home" class="flex items-center gap-3 rounded-full focus-ring" aria-label="Cafe Nahum home">
+          <span class="brand-mark">CN</span>
+          <span class="font-display text-xl font-semibold tracking-tight">Cafe Nahum</span>
+        </a>
+
+        <button
+          id="menu-toggle"
+          class="menu-toggle focus-ring md:hidden"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-menu"
+          aria-label="Open menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <div id="primary-menu" class="primary-menu hidden items-center gap-1 md:flex">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#story" class="nav-link">Our Story</a>
+          <a href="#menu" class="nav-link">Menu</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="section-anchor relative overflow-hidden">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:py-24">
+          <div class="fade-up">
+            <p class="eyebrow">beans.bakes.books</p>
+            <h1 class="mt-5 font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+              Your cozy corner to <span class="text-terracotta">focus, sip,</span> and stay awhile.
+            </h1>
+            <p class="lead mt-6 max-w-xl">
+              Study &amp; caffeinate in our comfy-tropical co-working café. Good Wi-Fi, warm light, soft chairs, and coffee that
+              makes the long assignment feel a little shorter.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#menu" class="btn btn-primary focus-ring">Explore our Menu</a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&amp;query=CAFE+NAHUM+ADDRESS+HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary focus-ring"
+                data-placeholder="Google Maps pinned location"
+              >
+                Visit us
+              </a>
+            </div>
+            <div class="mt-8 flex items-start gap-3 text-sm text-cocoa/70">
+              <span class="pin-dot" aria-hidden="true"></span>
+              <p>
+                <span class="font-semibold text-cocoa">Find us:</span>
+                [Address placeholder — replace with the café's street address, city, and landmark]
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-visual fade-up delay-1" aria-label="Decorative illustration of a coffee cup, book, and leaves">
+            <div class="hero-card">
+              <div class="hero-card-top">
+                <span class="mini-label">today's corner</span>
+                <span class="wifi-pill">Wi-Fi • Outlets • Books</span>
+              </div>
+              <svg class="cup-art" viewBox="0 0 240 190" role="img" aria-label="Line drawing of a coffee cup on a book">
+                <path d="M42 96h126v42c0 25-20 45-45 45H87c-25 0-45-20-45-45V96Z" fill="#fffaf1" stroke="currentColor" stroke-width="5" />
+                <path d="M168 108h16c18 0 30 12 30 29s-13 29-31 29h-15" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <path d="M74 78c0-14 12-20 12-34M104 76c0-17 13-23 13-39M135 78c0-14 12-20 12-34" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".55" />
+                <path d="M30 176h184l-18 10H48l-18-10Z" fill="currentColor" opacity=".12" />
+                <path d="M58 160h116M58 167h96" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".35" />
+              </svg>
+              <div class="hero-card-bottom">
+                <p class="font-display text-2xl font-semibold">Stay for one more chapter.</p>
+                <p class="text-sm text-cocoa/65">Open for quick catch-ups and slow study sessions.</p>
+              </div>
+            </div>
+            <div class="floating-note floating-note-one">iced latte o'clock</div>
+            <div class="floating-note floating-note-two">window seat = best seat</div>
+            <div class="leaf-shape leaf-one" aria-hidden="true"></div>
+            <div class="leaf-shape leaf-two" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="section-anchor bg-sand/45 py-20 sm:py-24">
+        <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 md:grid-cols-2">
+          <div class="fade-up">
+            <p class="eyebrow">Our Story</p>
+            <h2 class="section-title mt-4">A little café built for big ideas.</h2>
+            <p class="section-copy mt-6">
+              Cafe Nahum started as a simple wish: a warm place where students, readers, and remote workers could feel at home.
+              We put good coffee on one table, honest bakes on another, and shelves of books within reach. Come for the caffeine,
+              stay because the chair is comfy and the light feels like a hug.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3 text-sm font-medium text-leaf">
+              <span class="chip">locally loved</span>
+              <span class="chip">student friendly</span>
+              <span class="chip">slow mornings welcome</span>
+            </div>
+          </div>
+
+          <div class="polaroid-stage fade-up delay-1">
+            <div class="tape" aria-hidden="true"></div>
+            <figure class="polaroid">
+              <div
+                class="polaroid-photo"
+                role="img"
+                aria-label="Image placeholder: warm café interior with plants, wooden tables, and soft light"
+              >
+                <span>photo placeholder</span>
+              </div>
+              <figcaption>the corner where ideas brew</figcaption>
+            </figure>
+            <div class="scribble" aria-hidden="true">est. with love</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="section-anchor py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+          <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div class="fade-up">
+              <p class="eyebrow">Menu</p>
+              <h2 class="section-title mt-4">Something for every kind of study break.</h2>
+            </div>
+            <a
+              href="https://www.facebook.com/PLACEHOLDER_MENU_IMAGE_POST"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary self-start focus-ring"
+              data-placeholder="Facebook menu image link"
+            >
+              View full menu
+            </a>
+          </div>
+
+          <div class="mt-12 grid gap-6 lg:grid-cols-3">
+            <article class="menu-card fade-up">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl font-semibold">Desserts</h3>
+                <span class="category-icon">sweet</span>
+              </div>
+              <div class="mt-6 space-y-5">
+                <div class="featured-item">
+                  <div class="featured-thumb" role="img" aria-label="Image placeholder: brown butter cookie"><span>img</span></div>
+                  <div>
+                    <p class="font-semibold">Brown Butter Cookie</p>
+                    <p class="text-sm text-cocoa/60">Price placeholder</p>
+                  </div>
+                </div>
+                <div class="featured-item">
+                  <div class="featured-thumb thumb-alt" role="img" aria-label="Image placeholder: mango cake"><span>img</span></div>
+                  <div>
+                    <p class="font-semibold">Mango Cloud Cake</p>
+                    <p class="text-sm text-cocoa/60">Price placeholder</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up delay-1">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl font-semibold">Drinks</h3>
+                <span class="category-icon">sip</span>
+              </div>
+              <div class="mt-6 space-y-5">
+                <div class="featured-item">
+                  <div class="featured-thumb thumb-honey" role="img" aria-label="Image placeholder: iced pandan latte"><span>img</span></div>
+                  <div>
+                    <p class="font-semibold">Iced Pandan Latte</p>
+                    <p class="text-sm text-cocoa/60">Price placeholder</p>
+                  </div>
+                </div>
+                <div class="featured-item">
+                  <div class="featured-thumb thumb-leaf" role="img" aria-label="Image placeholder: citrus cold brew"><span>img</span></div>
+                  <div>
+                    <p class="font-semibold">Honey Citrus Cold Brew</p>
+                    <p class="text-sm text-cocoa/60">Price placeholder</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up delay-2">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl font-semibold">Food</h3>
+                <span class="category-icon">bite</span>
+              </div>
+              <div class="mt-6 space-y-5">
+                <div class="featured-item">
+                  <div class="featured-thumb thumb-terracotta" role="img" aria-label="Image placeholder: tropical chicken panini"><span>img</span></div>
+                  <div>
+                    <p class="font-semibold">Tropical Chicken Panini</p>
+                    <p class="text-sm text-cocoa/60">Price placeholder</p>
+                  </div>
+                </div>
+                <div class="featured-item">
+                  <div class="featured-thumb" role="img" aria-label="Image placeholder: mushroom toast"><span>img</span></div>
+                  <div>
+                    <p class="font-semibold">Miso Mushroom Toast</p>
+                    <p class="text-sm text-cocoa/60">Price placeholder</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section-anchor bg-leaf/5 py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+          <div class="mx-auto max-w-2xl text-center fade-up">
+            <p class="eyebrow">Gallery</p>
+            <blockquote class="mt-5 font-display text-2xl leading-snug font-medium italic sm:text-3xl">
+              “Little corners, big ideas, and the kind of light that makes you stay a little longer.”
+            </blockquote>
+          </div>
+
+          <div class="gallery-grid mt-12">
+            <div class="gallery-tile tile-wide" role="img" aria-label="Gallery placeholder: sunny café window seats"><span>gallery placeholder</span></div>
+            <div class="gallery-tile" role="img" aria-label="Gallery placeholder: latte art on a wooden table"><span>gallery placeholder</span></div>
+            <div class="gallery-tile" role="img" aria-label="Gallery placeholder: bookshelf corner"><span>gallery placeholder</span></div>
+            <div class="gallery-tile tile-tall" role="img" aria-label="Gallery placeholder: plants and warm lights"><span>gallery placeholder</span></div>
+            <div class="gallery-tile" role="img" aria-label="Gallery placeholder: friends studying together"><span>gallery placeholder</span></div>
+            <div class="gallery-tile tile-wide" role="img" aria-label="Gallery placeholder: pastry display"><span>gallery placeholder</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="section-anchor py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div class="fade-up">
+              <p class="eyebrow">Reviews</p>
+              <h2 class="section-title mt-4">Kind words from our regulars.</h2>
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&amp;query=CAFE+NAHUM+REVIEWS+HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-leaf underline decoration-leaf/30 underline-offset-4 hover:decoration-leaf focus-ring"
+              data-placeholder="Google Reviews link"
+            >
+              See us on Google
+            </a>
+          </div>
+
+          <div class="carousel mt-12 fade-up" data-carousel aria-roledescription="carousel" aria-label="Google-style reviews">
+            <div class="review-window" data-window>
+              <div class="review-track" data-track>
+                <article class="review-card" role="group" aria-label="Review 1 of 4">
+                  <div class="review-top">
+                    <div class="avatar avatar-one" aria-hidden="true">A</div>
+                    <div>
+                      <p class="font-semibold">Ana R.</p>
+                      <p class="text-xs text-cocoa/55">2 weeks ago</p>
+                    </div>
+                    <span class="google-tag">Google Review</span>
+                  </div>
+                  <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <p class="mt-3 text-sm leading-relaxed text-cocoa/75">
+                    The perfect spot to finish a paper. The iced pandan latte is dangerous in the best way, and the staff never
+                    rushes you when you're in the zone.
+                  </p>
+                </article>
+
+                <article class="review-card" role="group" aria-label="Review 2 of 4">
+                  <div class="review-top">
+                    <div class="avatar avatar-two" aria-hidden="true">M</div>
+                    <div>
+                      <p class="font-semibold">Mark T.</p>
+                      <p class="text-xs text-cocoa/55">1 month ago</p>
+                    </div>
+                    <span class="google-tag">Google Review</span>
+                  </div>
+                  <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <p class="mt-3 text-sm leading-relaxed text-cocoa/75">
+                    Comfy chairs, real outlets, and quiet corners. I came for one coffee and stayed three hours. The mushroom
+                    toast is a solid study buddy.
+                  </p>
+                </article>
+
+                <article class="review-card" role="group" aria-label="Review 3 of 4">
+                  <div class="review-top">
+                    <div class="avatar avatar-three" aria-hidden="true">J</div>
+                    <div>
+                      <p class="font-semibold">Jules P.</p>
+                      <p class="text-xs text-cocoa/55">1 month ago</p>
+                    </div>
+                    <span class="google-tag">Google Review</span>
+                  </div>
+                  <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <p class="mt-3 text-sm leading-relaxed text-cocoa/75">
+                    Feels like a little tropical hug. The mango cake is worth the walk, and there's always a book nearby when you
+                    need a break from your notes.
+                  </p>
+                </article>
+
+                <article class="review-card" role="group" aria-label="Review 4 of 4">
+                  <div class="review-top">
+                    <div class="avatar avatar-four" aria-hidden="true">S</div>
+                    <div>
+                      <p class="font-semibold">Sofia M.</p>
+                      <p class="text-xs text-cocoa/55">2 months ago</p>
+                    </div>
+                    <span class="google-tag">Google Review</span>
+                  </div>
+                  <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <p class="mt-3 text-sm leading-relaxed text-cocoa/75">
+                    Our group project spot ever since finals week. Warm, quiet, and friendly. Plus the honey citrus cold brew
+                    keeps everyone awake without the jitters.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            
+          </div>
+          <p class="mt-5 text-center text-xs text-cocoa/50">
+            Curated example reviews shown until live Google Reviews are connected.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section-anchor bg-cocoa py-20 text-cream sm:py-24">
+        <div class="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 md:grid-cols-2">
+          <div class="fade-up">
+            <p class="eyebrow eyebrow-light">Contact</p>
+            <h2 class="section-title mt-4 text-cream">Come say hi, or just send a note.</h2>
+            <p class="mt-6 max-w-md text-cream/70">
+              Questions about the menu, reservations, study spot recommendations, or book swaps? We'd love to hear from you.
+            </p>
+
+            <div class="mt-9 space-y-3">
+              <a
+                href="https://www.facebook.com/PLACEHOLDER_PAGE"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-card focus-ring"
+                data-placeholder="Facebook link"
+              >
+                <span class="social-icon">f</span>
+                <span><span class="block font-semibold">Facebook</span><span class="text-sm text-cream/60">PLACEHOLDER_PAGE</span></span>
+                <span class="ml-auto arrow">↗</span>
+              </a>
+              <a
+                href="https://www.instagram.com/PLACEHOLDER_HANDLE"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-card focus-ring"
+                data-placeholder="Instagram link"
+              >
+                <span class="social-icon">ig</span>
+                <span><span class="block font-semibold">Instagram</span><span class="text-sm text-cream/60">@PLACEHOLDER_HANDLE</span></span>
+                <span class="ml-auto arrow">↗</span>
+              </a>
+              <a
+                href="mailto:hello@cafenahum.example"
+                class="social-card focus-ring"
+                data-placeholder="Email address"
+              >
+                <span class="social-icon">@</span>
+                <span><span class="block font-semibold">Email</span><span class="text-sm text-cream/60">hello@cafenahum.example</span></span>
+                <span class="ml-auto arrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact-form fade-up delay-1">
+            <h3 class="font-display text-2xl font-semibold">Send a message</h3>
+            <p class="mt-2 text-sm text-cream/60">This opens your email app with the message ready to send.</p>
+
+            <label class="field-label" for="name">Your name</label>
+            <input class="field-input" id="name" name="name" type="text" placeholder="How should we call you?" required />
+
+            <label class="field-label" for="email">Your email</label>
+            <input class="field-input" id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label class="field-label" for="message">Message</label>
+            <textarea class="field-input field-textarea" id="message" name="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
+
+            <button type="submit" class="btn btn-honey mt-6 w-full focus-ring">Open email app</button>
+            <p class="mt-3 text-xs text-cream/55" data-form-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-cocoa pb-9 pt-2 text-center text-cream/60">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <p class="font-display text-3xl font-semibold tracking-tight text-cream">beans.bakes.books</p>
+        <p class="mt-3 text-sm">© <span id="year">2026</span> Cafe Nahum. Made for slow mornings and long study sessions.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
